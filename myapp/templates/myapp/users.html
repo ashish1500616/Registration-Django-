@@ -1,0 +1,16 @@
+{% extends "myapp/base.html" %} 
+<{% block content %}
+<div class="container" style="text-align:center">
+<h1>Here Is The User List In Database</h1>
+
+    {% if user_list %}
+     {% for user in user_list %}
+    <li>User Info</li>
+    <ul>
+        <li>First Name:{{user.firstname}}</li>
+        <li>First Name:{{user.lastname}}</li>
+        <li>First Name:{{user.email}}</li>
+    </ul>
+    {% endfor %} {% endif %}
+</div>
+{% endblock content %}

@@ -1,5 +1,5 @@
  {% extends "myapp/base.html" %} {% block content %}
-<form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+<form action="." method="POST"> {% csrf_token %}
     <div class="col-md-12  jumbotron">
         <center>
             Username:
@@ -11,7 +11,7 @@
             <input type="password" placeholder="Password" name="password" />
         </center>
     </div>
-   <center> <button type="button" class="btn btn-primary" type="submit" value="Login">Login</button></center>
+   <center> <button type="button" class="btn btn-primary"  type="submit" value="Login"><a class="writebtn" href="{% url 'login' %}?next={{ request.path }}">Login</a></button></center>
 </form>
 {% endblock %}
 <!--<html>
