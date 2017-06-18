@@ -5,16 +5,30 @@
     <title>SocialSite</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <!--  <link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
+    <!--  <link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
     <link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
 </head>
 
 <body>
     <div class="page-header">
-        <center><h1><a href="">LOGIN/SIGNUP</a></h1><center>
+        <center>
+            <h1>{{text}}</h1></center>
+        <center>
+            <h1><a href="">LOGIN/SIGNUP</a></h1>
+            <center>
     </div>
-   <CENTER>URL:myapp/connect</CENTER> 
-    {% block content %} {% endblock %}
+    <div class="conatiner" style="text-align:center">
+        <p>Links</p>
+        <a href="{% url 'myapp:conn' %}">LOGIN PAGE</a>
+        <br>
+        <a href="{% url 'myapp:login' %}">Check Who IS logged IN</a>
+        <br>
+        <a href="{% url 'myapp:showuser' %}">User List</a>
+        <br>
+        <a href="{% url 'myapp:showform' %}">Form For the DataBase</a>
+        <br>
+    </div>
+    <br> {% block content %} {% endblock %}
 </body>
 
 </html>

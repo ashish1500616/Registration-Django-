@@ -1,0 +1,22 @@
+{% extends "myapp/base.html" %} {% block content %}
+<form action="." method="POST"> {% csrf_token %}
+    <div class="col-md-12  jumbotron">
+        <form method="POST">
+            <center>
+                Username:
+                <input type="text" placeholder="UserName" name="usernamer" />
+            </center>
+            <br>
+            <center>
+                Password:
+                <input type="password" placeholder="Password" name="password" />
+            </center>
+            <br>
+            <br>
+            <center>
+                <button type="button" class="btn btn-primary" type="submit">Login</button>
+            </center>
+        </form>
+    </div>
+    {% endblock content %}
+    <!--{% url 'login' %}?next={{ request.path }}-->

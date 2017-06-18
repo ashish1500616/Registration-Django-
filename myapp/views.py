@@ -1,4 +1,4 @@
-  # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.shortcuts import render
@@ -13,11 +13,11 @@ from django import forms
 
 def hello(request):
     text = "welcome to my app !"
-    return render(request, "myapp/base.html", {'text': text})
+    return render(request, "myapp/base.html", {'text':text})
 
 
 def connect(request):
-    return render(request, "myapp/login.html", {})
+    return render(request, "myapp/loginpage.html",)
 
 
 def login(request):
@@ -34,23 +34,25 @@ def login(request):
 
 def show_user(request):
     user_dic = User_detail.objects.order_by('firstname')
-    return render(request,'myapp/users.html', {'user_list': user_dic})
+    return render(request, 'myapp/users.html', {'user_list': user_dic})
 
 # order_by('firstname')
+
+
 def show_basic_form(request):
-    form=PostForm()
-    return render(request,'myapp/form_page.html',{'form':form})
+    form = PostForm()
+    return render(request, 'myapp/form_page.html', {'form': form})
+
 
 def show_form(request):
-    form=PostForm(request.POST)
-    if request.method =='POST':
+    form = PostForm(request.POST)
+    if request.method == 'POST':
         if form.is_valid():
             form.save(commit=True)
             print("Form Validattion Successful")
-            print("Nmae:"+form.cleaned_data['firstname'])
-            print("Email:"+form.cleaned_data['email'])
+            print("Nmae:" + form.cleaned_data['firstname'])
+            print("Email:" + form.cleaned_data['email'])
             return show_user(request)
         else:
             print("Error Form Invalid")
-    return render(request,'myapp/forms.html',{'form':form})
-
+    return render(request, 'myapp/forms.html', {'form': form})
