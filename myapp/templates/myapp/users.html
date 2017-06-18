@@ -1,16 +1,20 @@
-{% extends "myapp/base.html" %} 
-<{% block content %}
-<div class="container" style="text-align:center">
-<h1>Here Is The User List In Database</h1>
-
-    {% if user_list %}
-     {% for user in user_list %}
-    <li>User Info</li>
+{% extends "myapp/base.html" %}
+<{% block content %} <div class="container" style="text-align:center">
+    <h1>Here Is The User List In Database</h1>
+    <li>User Info</li> {% if user_list %} {% for user in user_list %}
     <ul>
-        <li>First Name:{{user.firstname}}</li>
-        <li>First Name:{{user.lastname}}</li>
-        <li>First Name:{{user.email}}</li>
+        <div class="row">
+            <div class="col-md-4">
+                <li>First Name:{{user.firstname}}</li>
+            </div>
+            <div class="col-md-4">
+                <li>Last Name:{{user.lastname}}</li>
+            </div>
+            <div class="col-md-4">
+                <li> Email Address:{{user.email}}</li>
+            </div>
+        </div>
     </ul>
     {% endfor %} {% endif %}
-</div>
-{% endblock content %}
+    </div>
+    {% endblock content %}
