@@ -1,34 +1,55 @@
 {% load staticfiles %}
 <html>
 
-<head>
-    <title>SocialSite</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <!--  <link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
-    <link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
-</head>
+    <head>
+        <title>SocialSite</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!--  <link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
+        <link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
+    </head>
 
-<body>
-    <div class="page-header">
-        <center>
-            <h1>{{text}}</h1></center>
-        <center>
-            <h1><a href="">LOGIN/SIGNUP</a></h1>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'myapp:conn' %}" class="navbar-brand">DJANGO INDEX</a></li>
+                    <li><a class="navbar-link" href="{% url  'admin:index' %}">ADMIN</a></li>
+                    <li><a class="navbar-link" href="{% url 'myapp:register' %}">REGISTER </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="page-header">
             <center>
-    </div>
-    <div class="conatiner" style="text-align:center">
-        <p>Links</p>
-        <a href="{% url 'myapp:conn' %}">LOGIN PAGE</a>
-        <br>
-        <a href="{% url 'myapp:login' %}">Check Who IS logged IN</a>
-        <br>
-        <a href="{% url 'myapp:showuser' %}">User List</a>
-        <br>
-        <a href="{% url 'myapp:showform' %}">Form For the DataBase</a>
-        <br>
-    </div>
-    <br> {% block content %} {% endblock %}
-</body>
+                <h1>{{text}}</h1></center>
+            <center>
+                <h1><a href="">LOGIN/SIGNUP</a></h1>
+                <center>
+        </div>
+        <div class="conatiner" style="text-align:center">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <p>Links</p>
+                    <ul>
+                        <li>
+                            <a href="{% url 'myapp:conn' %}">LOGIN PAGE</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'myapp:login' %}">Check Who IS logged IN</a></li>
+                        <li>
+                            <a href="{% url 'myapp:showuser' %}">User List</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'myapp:showform' %}">Form For the DataBase</a>
+                        </li>
+                        <br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br> {% block content %} {% endblock %}
+    </body>
 
 </html>
+
